@@ -1,6 +1,6 @@
-package Listeners;
+package listeners;
 
-import Singleton.InstanPage;
+import singleton.InstanPage;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;

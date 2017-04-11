@@ -1,10 +1,10 @@
-import Singleton.InstanPage;
+import singleton.InstanPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pageobjects.MailRuLoginPage;
 import pageobjects.MailRuMailPage;
 import ru.yandex.qatools.allure.annotations.*;
-import Listeners.LoginTestListener;
+import listeners.LoginTestListener;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.testng.Assert.assertEquals;
