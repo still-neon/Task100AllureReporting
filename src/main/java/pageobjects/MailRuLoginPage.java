@@ -10,11 +10,11 @@ public class MailRuLoginPage {
     private static final String LOGIN = "seleniumtests10@mail.ru";
     private static final String PASSWORD = "060788avavav";
     private String URL = "http://mail.ru";
-    By login = By.id("mailbox__login");
-    By password = By.id("mailbox__password");
-    By enterButton = By.id("mailbox__auth__button");
-    By enterLink = By.id("PH_authLink");
-    By exitLink = By.id("PH_logoutLink");
+    private static final By login = By.id("mailbox__login");
+    private static final By password = By.id("mailbox__password");
+    private static final By enterButton = By.id("mailbox__auth__button");
+    private static final By enterLink = By.id("PH_authLink");
+    private static final By exitLink = By.id("PH_logoutLink");
     private WebDriver driver;
     private WebElement myDynamicElement;
 

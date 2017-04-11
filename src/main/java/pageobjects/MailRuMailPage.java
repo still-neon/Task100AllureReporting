@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MailRuMailPage {
-    By exitLink = By.id("PH_logoutLink");
-    By enterLink = By.id("PH_authLink");
+    private static final By exitLink = By.id("PH_logoutLink");
+    private static final By enterLink = By.id("PH_authLink");
     private WebDriver driver;
     private WebElement myDynamicElement;
 
