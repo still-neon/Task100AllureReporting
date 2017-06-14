@@ -11,9 +11,11 @@ import static org.testng.Assert.assertEquals;
 
 @Listeners(LoginTestListener.class)
 public class LogInTest {
-    private static final String ENTER = "Вход";
-    private static final String EXIT = "выход1";
+    private static final String ENTER = "Вход1";
+    private static final String EXIT = "выход";
     private WebDriver driver;
+    private MailRuLoginPage mailRuLoginPage;
+    private MailRuMailPage mailRuMailPage;
 
     @Parameter("My Param")
     private String myParameter;
@@ -25,7 +27,7 @@ public class LogInTest {
         driver.manage().timeouts().implicitlyWait(10, SECONDS);
     }
 
-    @AfterMethod
+    @AfterClass
     public void tearDown() {
         InstanPage.close();
     }
@@ -37,10 +39,12 @@ public class LogInTest {
     public void loginTest() throws InterruptedException {
         myParameter = "Browser: Google Chrome";
         myParameter = "Browser's version: 57.0.2987.133 (64-bit)";
-        MailRuLoginPage mailRuLoginPage = new MailRuLoginPage(driver);
+        mailRuLoginPage = new MailRuLoginPage(driver);
         mailRuLoginPage.load();
-        MailRuMailPage mailRuMailPage = mailRuLoginPage.login();
+        mailRuMailPage = mailRuLoginPage.login();
+        Thread.sleep(500);
         assertEquals(mailRuMailPage.getExitValue(), EXIT);
+        mailRuLoginPage = mailRuMailPage.logout();
     }
 
     @Features("LogOut")
@@ -50,9 +54,10 @@ public class LogInTest {
     public void logoutTest() throws InterruptedException {
         myParameter = "Browser: Google Chrome";
         myParameter = "Browser's version: 57.0.2987.133 (64-bit)";
-        MailRuLoginPage mailRuLoginPage = new MailRuLoginPage(driver);
+        mailRuLoginPage = new MailRuLoginPage(driver);
         mailRuLoginPage.load();
-        MailRuMailPage mailRuMailPage = mailRuLoginPage.login();
+        mailRuMailPage = mailRuLoginPage.login();
+        Thread.sleep(500);
         mailRuLoginPage = mailRuMailPage.logout();
         assertEquals(mailRuLoginPage.getEnterValue(), ENTER);
     }

@@ -15,12 +15,12 @@ public class InstanPage {
     public static WebDriver getInstance() {
         if (driver == null) {
             driver = new ChromeDriver();
+            System.out.println("driver sucks");
         }
         return driver;
     }
 
     public static void close() {
         driver.quit();
-        driver = null;
     }
 }

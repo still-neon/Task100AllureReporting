@@ -2,9 +2,6 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MailRuLoginPage {
     private static final String LOGIN = "seleniumtests10@mail.ru";
@@ -14,9 +11,7 @@ public class MailRuLoginPage {
     private static final By password = By.id("mailbox__password");
     private static final By enterButton = By.id("mailbox__auth__button");
     private static final By enterLink = By.id("PH_authLink");
-    private static final By exitLink = By.id("PH_logoutLink");
-    private WebDriver driver;
-    private WebElement myDynamicElement;
+        private WebDriver driver;
 
     public MailRuLoginPage(WebDriver driver) {
         this.driver = driver;
@@ -27,18 +22,18 @@ public class MailRuLoginPage {
     }
 
     public MailRuMailPage login() throws InterruptedException {
+        driver.findElement(login).clear();
         driver.findElement(login).sendKeys(LOGIN);
         driver.findElement(password).sendKeys(PASSWORD);
         driver.findElement(enterButton).click();
-        myDynamicElement = (new WebDriverWait(driver, 100)).until(ExpectedConditions.visibilityOf(driver.findElement(exitLink)));
         return new MailRuMailPage(driver);
     }
 
     public MailRuMailPage login(String login, String password) {
+        driver.findElement(this.login).clear();
         driver.findElement(this.login).sendKeys(login);
         driver.findElement(this.password).sendKeys(password);
         driver.findElement(enterButton).click();
-        myDynamicElement = (new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOf(driver.findElement(exitLink)));
         return new MailRuMailPage(driver);
     }
 

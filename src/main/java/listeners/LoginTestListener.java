@@ -16,7 +16,6 @@ public class LoginTestListener implements ITestListener {
 
     @Attachment(value = "Attachment", type = "image/png")
     private byte[] createAttachment() {
-        System.out.print("Test111");
         return ((TakesScreenshot) InstanPage.getInstance()).getScreenshotAs(OutputType.BYTES);
     }
 
